@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/16/trunk/kmt/src/kmt/tests
+END
+get_some_pictures.clj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/14/trunk/kmt/src/kmt/tests/get_some_pictures.clj
+END
+sanity.clj
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/12/trunk/kmt/src/kmt/tests/sanity.clj
+END
+test_crawl.clj
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/16/trunk/kmt/src/kmt/tests/test_crawl.clj
+END

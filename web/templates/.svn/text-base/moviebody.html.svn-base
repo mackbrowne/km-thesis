@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <div class="movie">
+      <h1>{{locname}}</h1>
+      <h2>{{group}} / {{locid}}</h2>
+
+      <div class="framecontainer">
+        <img id="frame"></img>
+      </div>
+    </br>
+    </br>
+      <p>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="back">Map</button>
+        <button id="current_img">Current</button>
+      </p>
+    </div>
+
+{% endblock %}
+

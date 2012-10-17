@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/61/trunk/web/templates
+END
+layout.html
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/61/trunk/web/templates/layout.html
+END
+map.html
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/47/trunk/web/templates/map.html
+END
+moviebody.html
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/45/trunk/web/templates/moviebody.html
+END
+movie.html
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/43/trunk/web/templates/movie.html
+END
+homepagebody.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/56/trunk/web/templates/homepagebody.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/47/trunk/web/templates/index.html
+END
+listbody.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/45/trunk/web/templates/listbody.html
+END
+mapbody.html
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/53/trunk/web/templates/mapbody.html
+END

@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='mystyle.css')}}"/>
+
+    <script>
+    var started = false;
+    var timestamp = 0;
+    function next_frame(group, locid) {
+      if(! started) {
+        return;
+      }
+      $.getJSON("{{url_for('get_nexttimestamp')}}",
+        { group: group,
+          locid: locid,
+          timestamp: timestamp},
+        function(ntimestamp) {
+          if(ntimestamp > 0) {
+            var imageurl = "{{url_for('get_image')}}?" 
+                         + $.param({group: group, locid:locid,
+                         timestamp:ntimestamp});
+            $("#frame").attr('src', imageurl);
+            timestamp = ntimestamp;
+          } else {
+              // $("#frame").after("Hit the end?");
+            timestamp = 0;
+          }
+          setTimeout(function() {next_frame(group, locid);}, 100);
+        }
+      );
+    }
+    $(function() {
+      $("#start").click(function(e) {
+        started = true;
+        next_frame("{{group}}", "{{locid}}");
+      });
+      $("#stop").click(function(e) {
+        started = false;
+      });
+      $("#back").click(function(e) {
+        started = false;
+        window.location = "/map";
+      });
+      $("#current_img").click(function(e) {
+          started = false;
+          
+          var imageurl = "http://www.mto.gov.on.ca/english/traveller/compass/camera/pictures/{{locid}}.jpg"
+         $("#frame").attr('src', imageurl);
+          
+      });
+    });
+    </script>
+  </head>
+
+  <body>
+    <div class="movie">
+      <h1 class="locname">{{locname}}</h1>
+      <h2 class="locid">{{group}} / {{locid}}</h2>
+
+      <div class="framecontainer">
+        <img id="frame"></img>
+      </div>
+
+      <p>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="back">Map</button>
+        <button id="current_img">Current</button>
+      </p>
+    </div>
+  </body>
+
+</html>

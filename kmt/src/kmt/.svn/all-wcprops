@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/31/trunk/kmt/src/kmt
+END
+crawl.clj
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/31/trunk/kmt/src/kmt/crawl.clj
+END
+core.clj
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/12/trunk/kmt/src/kmt/core.clj
+END
+db_postgres.clj
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/19/trunk/kmt/src/kmt/db_postgres.clj
+END
+util.clj
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/26/trunk/kmt/src/kmt/util.clj
+END
+config.clj
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/30/trunk/kmt/src/kmt/config.clj
+END
+db.clj
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/30/trunk/kmt/src/kmt/db.clj
+END

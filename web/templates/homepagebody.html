@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<h1>Welcome to the KMT thesis site!</h1>
+<br/><br/>
+<h2>A Little Introduction</h2>
+<div>
+    This site is a simple web front-end interface for the traffic images crawled
+    by our back end web crawler. This section of the thesis focuses on presenting 
+    the collected data in a way that users can easily interact with. There are two
+    available tab options, the map view and the movie list view, which are outlined 
+    below.
+</div><br/>
+
+<div class="view_div">
+    <h3>The Map View</h3>
+    Upon clicking on the <b>Map</b> tab, the user
+    will be asked to allow location service that the Google Maps API uses to
+    plot the user location on the map. This is part of the HTML5 Geolocation
+    API that gathers information on a user's current location. From here the
+    closest camera view is then opened on the map and shows the user the most
+    recent traffic camera image obtained from the 
+    <a href="http://www.mto.gov.on.ca/english/traveller/trip/traffic_cameras.shtml" target="_blank">MTO Website</a>.
+    The user can then click the image which takes them to the <b>Movie</b> page
+    of the site.
+</div>
+<br/>
+<div class="view_div">
+    <h3>The Movie View</h3>
+    The movie view will take you to another screen that allows the user select a
+    camera from which to view the history of images for that camera. Upon clicking
+    on a location, the user can then start a movie simulated using the history
+    of images from the database of stored images. From here the user can also
+    view the latest image from that camera as well.
+</div>
+{% endblock %}
+
+  

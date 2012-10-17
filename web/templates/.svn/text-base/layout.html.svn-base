@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>KMT Thesis</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- The HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- The styles section -->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename='mystyle.css')}}"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='layout.css')}}"/>
+
+        <!-- The fav and touch icons section -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+     
+        <!-- Google Maps API stuff -->
+        <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBwFYxG1PRMNw1j6j74wUF2ya2eFaBsX14&sensor=true">
+        </script>
+            
+        
+        <script type="text/javascript">
+            var map; // The map object that holds all the overlays etc.
+            var firstSetup = true;  // Used to determine whether to draw the cameras, only draw once
+            var watchProcess; // The process that handles user position geolocation updates
+            var contentString;  // The content string that will be defined for the tooltips on click of markers
+            var locs; // The locations as passed from python back end
+            var infoWindow; // Information window that opens when an overlay is clicked
+            var cam_markers = new Array(); // camera markers array
+            var prevMarker = -1; // Index of the previous marker in the camera marker array
+            var usrPos = new google.maps.Marker(); // The user position marker
+            var links, url_arr;
+            var lastPos = new google.maps.LatLng(0.0,0.0); // The last position the user was at. used for determining if update is needed
+            var lastTime = new Date();   // The time between the last update of user position
+            
+            function update_userPos(position) {
+                
+                /* Check for updating of user position too fast, if less than 20
+                   meter difference and last update was less than 3 seconds ago,
+                   don't bother updating. Avoids needless battery drain and data
+                   usage especially on mobile devices. */
+                var date = new Date();
+                var dist = findDistanceKm(position.coords.longitude,
+                    position.coords.latitude,lastPos.lng(),lastPos.lat())*1000;
+                var time = date.getTime() - lastTime.getTime();
+                if( dist < 20 && time < 3000 ) {
+                    return;
+                }
+                
+                // Set up the marker for user position
+                var lon = position.coords.longitude;
+                var lat = position.coords.latitude;
+                var position = new google.maps.LatLng(lat,lon);
+                usrPos.setOptions({
+                    position: position,
+                    map: map,
+                    icon: "{{url_for('static', filename='currentdot.gif')}}",
+                    title:"You are here!",
+                    optimized: false
+                });
+                
+                // Update last position for checking next time if user position
+                // has changed significantly
+                lastPos = position;
+                lastTime = date;
+                
+                // Update the closest camera marker with the larger red dot
+                updateClosestMarker(lat,lon);
+            }
+            
+            function setupMap(position) {
+                // Check location status and display message when location found
+                var s = document.querySelector('#status');
+                if (s.className == 'success') {
+                    // if "allow" for gps has already been set
+                    return;
+                }
+                s.innerHTML = "found you!";
+                s.className = 'success';
+                
+                // Setup the map object
+                var mapcanvas = document.createElement('div');
+                mapcanvas.id = 'mapcanvas';
+                mapcanvas.style.height = '400px';
+                
+                // If mobile device, make it a little bit less wide
+                if(isMobileDevice()) {
+                    mapcanvas.style.width = '400px';
+                } else {
+                    mapcanvas.style.width = '560px';
+                }
+                
+                document.querySelector('statusChecker').appendChild(mapcanvas);
+                
+                // Options and initialization for map
+                var start = new google.maps.LatLng(43.852169,-79.022083);          
+                var myOptions = {
+                    zoom: 8,
+                    center: start,
+                    mapTypeControl: false,
+                    scaleControl: true,
+                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+                
+                // Get locations and links from python Flask
+                locs = ({{ locations|safe }});
+                links = "{{urls}}";
+                url_arr = links.split(',');
+                 
+                /* Plot all the cameras and initialize the location
+                 * as well as update the user position on the map.
+                 */
+                plot_cams();
+                update_userPos(position);
+                initiate_watchLocation();
+            }
+            
+            function updateClosestMarker(lat,lon) {
+                var i = findClosest(locs,lon,lat);
+                var closest_image = 'https://chart.googleapis.com/chart?chst=d_simple_text_icon_left&chld=|14|000|glyphish_camera|16|AB0C4C|FFF';
+                
+                // If markers the the same, avoid redundant opening of infowindows
+                if(i == prevMarker) {
+                    return;
+                }
+                
+                // Set old closest marker back to blue dot
+                if(prevMarker != -1) {
+                    cam_markers[prevMarker].setOptions({
+                        icon:"{{url_for('static', filename='locdot.png')}}",
+                        title: locs[prevMarker][2]
+                    });
+                }
+                
+                var title = "Closest: " + locs[i][2];
+                cam_markers[i].setOptions({
+                    icon: "{{url_for('static', filename='closestdot.png')}}",
+                    title: title
+                });  
+                
+                var imgurl = "http://www.mto.gov.on.ca/english/traveller/compass/camera/pictures/" + locs[i][1] + ".jpg";
+                contentString = '<center><h2>' + locs[i][2] + '</h2><a href="' + url_arr[i] + '"><img class="images" src="' 
+                                + imgurl + '" WIDTH="192" HEIGHT="144" /></a>' +
+                                '<div> Click image to view locations history of images </div></center>';
+                
+                // Open infowindow automatically
+                infowindow.close();
+                infowindow.setOptions({content: contentString});
+                infowindow.open(map,cam_markers[i]);
+                
+                // Get the center between user location and camera and animate to it
+                var center = getCenter(lat,lon,locs[i][3],locs[i][4]);
+                map.setZoom(getBestZoom(lon,lat,locs[i][4],locs[i][3]));
+                map.panTo(center);
+                
+                
+                // Set new prevMarker to current
+                prevMarker = i;
+            }
+            
+            function plot_cams() {
+                // Add location markers to map
+                // and initialize location list
+                var mark, i;
+
+                // Add camera markers to map
+                for(i=0; i<locs.length; i++){
+                    // Create marker and add to array of markers for cameras
+                    mark = new google.maps.Marker({
+                        position:  new google.maps.LatLng(locs[i][3], locs[i][4]),
+                        map: map,
+                        icon:"{{url_for('static', filename='locdot.png')}}",
+                        title: locs[i][2]
+                    });
+                    cam_markers[i] = mark;
+                    
+                    // Image for camera overlays and content for the information windows
+                    var imgurl = "http://www.mto.gov.on.ca/english/traveller/compass/camera/pictures/" + locs[i][1] + ".jpg";
+                    contentString = '<center><h2>' + locs[i][2] + '</h2><a href="' + url_arr[i] + '"><img class="images" src="' 
+                                        + imgurl + '" WIDTH="192" HEIGHT="144" /></a>' +
+                                        '<div> Click image to view locations history of images </div></center>';
+                    
+                    infowindow = new google.maps.InfoWindow({
+                        // Empty initially
+                    });
+                    
+                    // On-Click listener for camera markers
+                    google.maps.event.addListener(mark, 'click', (function(map,mark,contentString) {
+                        return function() {
+                            infowindow.close();
+                            infowindow.setOptions({content: contentString});
+                            infowindow.open(map,mark);
+                        }
+                    })(map,mark,contentString));
+                }
+            }
+            
+            // Handles any errors received from Geolocation
+            function error(msg) {
+                var s = document.querySelector('#status');
+                s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                s.className = 'fail';
+
+                // console.log(arguments);
+            }
+            
+            // Sets up a process to watch location of user for updates in position
+            function initiate_watchLocation() {
+                if(watchProcess == null) {
+                    var options;
+                    
+                    /* If it is a mobile phone, enable high accuracy aka GPS
+                       for subsequent position updates as network are too vague
+                       for our purpose. If GPS it updates every 4 seconds */
+                    if(isMobileDevice()) {
+                        options = {
+                            enableHighAccuracy:true,
+                            maximumAge:4000
+                        };
+                    }
+                    
+                    watchProcess = navigator.geolocation.watchPosition(update_userPos,error,options);
+                }
+            }
+            
+            function isMobileDevice() {
+                var ua = navigator.userAgent.toLowerCase();
+                var isAndroid = ua.search("android") > -1;
+                var isIphone = ua.search("iphone") > -1;
+                var isIpod = ua.search("ipod") > -1;
+                var isMobile = ua.search("mobile") > -1;
+                
+                if(isAndroid || isIphone || isIpod || isMobile) {
+                    return true;
+                }
+                
+                return false;
+            }
+            
+            // Find user location
+            function Findlocation(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(setupMap, error);
+                } else {
+                    error('not supported');
+                }
+            }
+            
+            // Get the center between two points in long and latitude
+            function getCenter(lat1,lon1,lat2,lon2) {
+                var lat = (parseFloat(lat1)+parseFloat(lat2))/2;
+                var lon = (parseFloat(lon1)+parseFloat(lon2))/2;
+                var center = new google.maps.LatLng(lat,lon);
+                
+                return center;
+            }
+            
+            /* Finds the index of the closest camera by comparing user location 
+                (lon,lat) to all the locations. */
+            function findClosest(locs,lon,lat){
+                
+                var best = findDistance(lon,lat,locs[0][3],locs[0][4]);
+                var besti = 0;
+                for(var i=1;i<locs.length;i++){
+                
+                    var distance = findDistance(lon,lat,locs[i][3], locs[i][4]);
+                    
+                    if(distance<best){
+                        best=distance;
+                        besti=i;
+                    }
+                }
+                
+                return besti;
+            }
+            
+            /**
+             * Returns an integer number of the best zoom based on how far the
+             * user is from the camera. For example, if the user is 50 km from
+             * the camera, the map needs to be zoomed out to account for this
+             * distance.
+             */
+            function getBestZoom(lon1,lat1,lon2,lat2) {
+                var dist = findDistanceKm(lon1,lat1,lon2,lat2);
+                switch(true) {
+                    case (dist < 5):
+                        return 13;
+                        break;
+                    case (dist < 10):
+                        return 12;
+                        break;
+                    case (dist < 15):
+                        return 11;
+                        break;
+                    case (dist < 20):
+                        return 10;
+                        break;
+                    default:
+                        return 9;
+                        break;
+                }
+            }
+            
+            /**
+             * Finds the distance between two coordinates using the Haversine
+             * formula to calculate the great-circle distance between two points
+             * on the globe. It is an estimate and measures point-to-point 
+             * returning the number of kilometers between.
+             */
+            function findDistanceKm(lon1,lat1,lon2,lat2) {
+                var R = 6371; // km
+                var dLat = toRad(lat2-lat1);
+                var dLon = toRad(lon2-lon1);
+                var lat1 = toRad(lat1);
+                var lat2 = toRad(lat2);
+
+                var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                        Math.sin(dLon/2) * Math.sin(dLon/2) * 
+                        Math.cos(lat1) * Math.cos(lat2); 
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                var d = R * c;
+                
+                return d;
+            }
+            
+            /**
+             * Simple function for computing radians from the degree input
+             * parameter value.
+             */
+            function toRad(value) {
+                return value*Math.PI/180;
+            }
+            
+            /**
+             * Finds just the basic longitude/latitude distance between two
+             * points. A very simple distance calculation.
+             */
+            function findDistance(lon1,lat1,lat2,lon2){
+                
+                var a = Math.pow(lon1 - lon2,2);
+                var b = Math.pow(lat1 - lat2,2);
+                
+                return Math.abs(a+b);
+            }
+        </script> 
+     
+        <script>
+            var started = false;
+            var timestamp = 0;
+            
+            function next_frame(group, locid) {
+              if(! started) {
+                return;
+              }
+              $.getJSON("{{url_for('get_nexttimestamp')}}",
+                { group: group,
+                  locid: locid,
+                  timestamp: timestamp},
+                function(ntimestamp) {
+                  if(ntimestamp > 0) {
+                    var imageurl = "{{url_for('get_image')}}?" 
+                                 + $.param({group: group, locid:locid,
+                                 timestamp:ntimestamp});
+                    $("#frame").attr('src', imageurl);
+                    timestamp = ntimestamp;
+                  } else {
+                      // $("#frame").after("Hit the end?");
+                    timestamp = 0;
+                  }
+                  setTimeout(function() {next_frame(group, locid);}, 100);
+                }
+              );
+            }
+            
+            $(function() {
+              $("#start").click(function(e) {
+                started = true;
+                next_frame("{{group}}", "{{locid}}");
+              });
+              $("#stop").click(function(e) {
+                started = false;
+              });
+              $("#back").click(function(e) {
+                started = false;
+                window.location = "/maplayout";
+              });
+              $("#current_img").click(function(e) {
+                  started = false;
+                  
+                  var imageurl = "http://www.mto.gov.on.ca/english/traveller/compass/camera/pictures/{{locid}}.jpg"
+                 $("#frame").attr('src', imageurl);
+                  
+              });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="topbar">
+          <div class="fill">
+            <div class="container">
+              <a class="brand" href="{{ url_for('homepagelayout') }}">KMT Thesis</a>
+              <ul class="nav">
+                <li><a href="{{ url_for('maplayout') }}">Map</a></li>
+                <li><a href="{{ url_for('listlayout') }}">Movie</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          
+          <!-- Main hero unit for a primary marketing message or call to action -->
+          <div class="hero-unit">
+            {% block body %}{% endblock %}
+          </div>
+
+      
+          <footer>
+            <p>&copy; Mack Browne, Kyle Lisk, Ken Pu 2012</p>
+          </footer>
+
+        </div> <!-- /container -->
+  </body>
+</html>

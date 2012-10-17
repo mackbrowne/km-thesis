@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/49/trunk/kmt
+END
+traffic-images.sqlite
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/49/trunk/kmt/traffic-images.sqlite
+END
+coordinates.csv
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/38/trunk/kmt/coordinates.csv
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/12/trunk/kmt/.gitignore
+END
+run.sh
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/26/trunk/kmt/run.sh
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/16/trunk/kmt/README
+END
+project.clj
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/38/trunk/kmt/project.clj
+END

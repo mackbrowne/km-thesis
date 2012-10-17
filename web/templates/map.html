@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>Traffic Cams</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            html { height: 100% }
+            body { height: 100%; padding: 0 }
+            #map_canvas { height: 100%; margin: 0 auto }
+        </style>
+        
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBwFYxG1PRMNw1j6j74wUF2ya2eFaBsX14&sensor=true">
+        </script>
+        
+        <script type="text/javascript">
+            function success(position) {
+                
+            	//location checker
+            	var s = document.querySelector('#status');
+                if (s.className == 'success') {
+                    // if "allow" for gps has already been set
+                    return;
+                }
+                s.innerHTML = "found you!";
+                s.className = 'success';
+                
+                //setup map
+                var mapcanvas = document.createElement('div');
+                mapcanvas.id = 'mapcanvas';
+                mapcanvas.style.height = '400px';
+                mapcanvas.style.width = '560px';
+                document.querySelector('statusChecker').appendChild(mapcanvas);
+                
+                //options and initialization for map
+                var start = new google.maps.LatLng(43.852169,-79.022083);          
+                var myOptions = {
+                    zoom: 8,
+                    center: start,
+                    mapTypeControl: false,
+                    scaleControl: true,
+                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+               
+                //marker for user position
+                var _lon = position.coords.longitude;
+                var _lat = position.coords.latitude;
+                var position = new google.maps.LatLng(_lat,_lon);
+                 
+                var marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    icon:"https://chart.googleapis.com/chart?chst=d_simple_text_icon_left&chld=|14|0D21FF|glyphish_user|16|0D21FF|0D21FF",
+                    title:"You are here!"
+                });
+                 
+                 
+                //add location markers to map
+                //initialize location list
+                var image = 'https://chart.googleapis.com/chart?chst=d_simple_text_icon_left&chld=|14|000|glyphish_camera|16|000|FFF';
+                var closest_image = 'https://chart.googleapis.com/chart?chst=d_simple_text_icon_left&chld=|14|000|glyphish_camera|16|AB0C4C|FFF';
+                var locs = ({{ locations|safe }});
+                var links = "{{urls}}";
+                var url_arr = links.split(',');
+                var mark, i;
+               
+                var closest_loc = findClosest(locs,_lon,_lat);
+
+                //add markers to map
+                for(i=0; i<locs.length; i++){
+   
+                    if(locs[i][2] == closest_loc){
+            		   
+                        var title = "Closest: " + locs[i][2];
+            		   
+                        mark = new google.maps.Marker({
+                            position:  new google.maps.LatLng(locs[i][3], locs[i][4]),
+                            map: map,
+                            icon: closest_image,
+                            title: title
+                        });  
+                    }else{
+                        mark = new google.maps.Marker({
+                            position:  new google.maps.LatLng(locs[i][3], locs[i][4]),
+                            map: map,
+                            icon: image,
+                            title: locs[i][2]
+                        });
+                    }
+                   
+                    google.maps.event.addListener(mark, 'mouseover', function(mark) {
+                        return function() {
+                            mark.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    }(mark));
+                   
+                    google.maps.event.addListener(mark, 'mouseout', function() {
+                        
+                    });
+                   
+                    google.maps.event.addListener(mark, 'click', (function(url_arr, i) {
+                        return function() {
+                            //window.location = url_arr[i]; 
+                            mark.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    })(url_arr, i));
+                } 
+            	  
+            }
+            
+            function error(msg) {
+                var s = document.querySelector('#status');
+                s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                s.className = 'fail';
+
+                // console.log(arguments);
+            }
+
+            function Findlocation(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(success, error);
+                } else {
+                    error('not supported');
+                }
+            }
+            
+            function findClosest(locs,lon,lat){
+            	
+            	var best = findDistance(lon,lat,locs[0][3],locs[0][4]);
+            	var besti = 0;
+            	for(var i=1;i<locs.length;i++){
+            	
+            		var distance = findDistance(lon,lat,locs[i][3], locs[i][4]);
+            		
+            		if(distance<best){
+            			best=distance;
+            			besti=i;
+            		}
+            	}
+            	
+            	return locs[besti][2];
+            }
+            
+            function findDistance(lon,lat,lat2,lon2){
+            	
+            	var a = Math.pow(lon - lon2,2);
+            	var b = Math.pow(lat - lat2,2);
+            	
+            	return Math.abs(a+b);
+            }
+        </script> 
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            Findlocation();
+        </script>
+        <h1> Camera Location Map </h1>
+        <statusChecker><p>Finding your location: <span id="status">checking...</span> </p></statusChecker>
+        <div id="map_canvas" style="width:100%; height:100%"></div>
+    </body>
+</html>

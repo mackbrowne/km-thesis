@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/26/trunk/kmt/src/kmt/run
+END
+start_crawl.clj
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/26/trunk/kmt/src/kmt/run/start_crawl.clj
+END
+setup_db.clj
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/16/trunk/kmt/src/kmt/run/setup_db.clj
+END

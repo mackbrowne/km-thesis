@@ -1,0 +1,266 @@
+ loc103,43.852169,-79.022083, 401 near Harwood Ave
+ loc102,43.848084,-79.040623, 401 near Westney Rd
+ loc101,43.845794,-79.052296, 401 near Church St
+ loc100,43.841832,-79.061995, 401 E of Brock Rd
+ loc99,43.837932,-79.070406, 401 near Brock Rd
+ loc98,43.83366,-79.079075, 401 E of Liverpool Rd
+ loc97,43.829635,-79.088345, 401 near Liverpool Rd
+ loc96,43.820347,-79.107313, 401 E of Whites Rd
+ loc95,43.814897,-79.115124, 401 near Whites Road
+ loc94,43.807031,-79.128385, 401 near Rougemout Dr
+ loc93,43.79969,-79.139714, 401 near Rouge River
+ loc92,43.796995,-79.144135, 401 near Port Union Rd
+ loc74,43.794858,-79.152589, 401 near Kingston Rd
+ loc73,43.798699,-79.166021, 401 near Meadowvale Rd
+ loc72,43.798668,-79.177094, 401 E of Conlins Rd
+ loc71,43.797212,-79.187179, 401 near Conlins Rd
+ loc70,43.795663,-79.196877, 401 near Morningside Ave
+ loc69,43.794486,-79.206276, 401 E of Neilson Rd
+ loc68,43.792968,-79.215546, 401 near Neilson Rd
+ loc67,43.787485,-79.227562, 401 E of Markham Rd
+ loc66,43.784914,-79.235201, 401 near Markham Rd
+ loc65,43.782373,-79.244857, 401 near Bellamy Rd
+ loc64,43.780452,-79.254856, 401 near McCowan Rd
+ loc63,43.778407,-79.264727, 401 near Brimley Rd
+ loc62,43.776424,-79.274769, 401 near Midland Ave
+ loc61,43.774069,-79.284554, 401 near Kennedy Rd
+ loc60,43.771838,-79.294338, 401 near Birchmount Rd
+ loc59,43.769668,-79.304037, 401 near Warden Ave
+ loc58,43.767592,-79.319572, 401 near Victoria Park Ave
+ loc57,43.766755,-79.336739, 401 E of DVP
+ loc55,43.770846,-79.337082, 404 N of Hwy 401
+ loc81,43.775866,-79.338198, 404 near Sheppard Ave
+ loc82,43.786803,-79.340472, 404 near Van Horne Ave
+ loc83,43.79523,-79.342532, 404 near Finch Ave
+ loc54,43.76629,-79.34691, 401 near Don Mills Rd
+ loc53,43.76567,-79.362659, 401 near Leslie St
+ loc52,43.764958,-79.374804, 401 E of Bayview Ave
+ loc51,43.762571,-79.387207, 401 near Bayview Ave
+ loc50,43.758139,-79.399695, 401 E of Yonge St
+ loc11,43.752745,-79.408364, 401 near Yonge St
+ loc12,43.746483,-79.416261, 401 near Hoggs Hollow
+ loc13,43.741895,-79.422741, 401 near Avenue Rd
+ loc14,43.735352,-79.433727, 401 near Bathurst St
+ loc15,43.727476,-79.447718, 401 near Allen Rd S
+ loc16,43.732251,-79.450593, 401 near Allen Rd N
+ loc17,43.727321,-79.457846, 401 near Dufferin St
+ loc18,43.724684,-79.470119, 401 near Caledonia Rd
+ loc19,43.721986,-79.481235, 401 near Keele St
+ loc20,43.719908,-79.489603, 401 near MTO Operations Centre
+ loc21,43.717148,-79.502606, 401 at basket weave near Jane St
+ loc22,43.717055,-79.507713, 401 near Jane St
+ loc24,43.714418,-79.518313, 401 near Hwy 400 S
+ loc23,43.718761,-79.521532, 400 N of Hwy 401
+ loc105,43.729057,-79.523163, 400 N of Wilson Ave
+ loc106,43.736561,-79.524965, 400 near Sheppard Ave
+ loc107,43.746731,-79.527711, 400 N of Sheppard Ave
+ loc108,43.754915,-79.529428, 400 near Finch Ave
+ loc109,43.766693,-79.532347, 400 N of Finch Ave
+ loc110,43.773015,-79.53372, 400 near Steeles Ave
+ loc111,43.782001,-79.542303, 400 near Hwy 407
+ loc112,43.791605,-79.538269, 400 near Hwy 7
+ loc113,43.80127,-79.540329, 400 N of Hwy 7
+ loc114,43.809756,-79.542475, 400 near Langstaff Rd
+ loc25,43.712495,-79.536037, 401 near Weston Rd
+ loc26,43.708462,-79.552259, 401 near Islington Ave
+ loc27,43.705189,-79.562323, 401 near Hwy 409 N
+ loc28,43.699837,-79.561529, 401 near Kipling Ave
+ loc29,43.689163,-79.570026, 401 near Martin Grove Rd
+ loc30,43.677525,-79.576936, 401 near Hwy 27
+ loc32,43.672055,-79.581313, 401 near Carlingview Dr
+ loc31,43.672466,-79.577494, 401 near Hwy 427 S
+ loc77,43.654211,-79.56861, 427 N of Rathburn Rd
+ loc76,43.645548,-79.56449, 427 N of Bloor St
+ loc33,43.672652,-79.589553, 401 near Hwy 427 N
+ loc34,43.668058,-79.591312, 401 near Renforth Dr
+ loc35,43.664022,-79.601526, 401 near Pearson Airport
+ loc36,43.65921,-79.612899, 401 near Transfer(E of Dixie)
+ loc37,43.651386,-79.628091, 401 near Etobicoke Creek
+ loc38,43.647908,-79.637232, 401 near Dixie Rd
+ loc39,43.641728,-79.653068, 401 near Tomken Rd
+ loc40,43.636479,-79.6665, 401 near Hwy 410
+ loc41,43.642318,-79.663968, 410 N of Hwy 401
+ loc75,43.652162,-79.677014, 410 near Courtney Park Rd
+ loc43,43.630515,-79.647059, 403 near Matheson Blvd.
+ loc42,43.639026,-79.65929, 403 S of Hwy 401
+ loc44,43.622004,-79.63603, 403 near Eglinton Ave
+ loc45,43.613832,-79.631352, 403 near Eastgate Pkwy
+ loc121,43.607618,-79.636502, 403 near Central Pkwy E
+ loc122,43.600346,-79.64427, 403 near Hurontario St
+ BurlCamera/loc01,43.258518,-79.767008, QEW near Burlington St
+ BurlCamera/loc02,43.264956,-79.772243, QEW near Woodward Ave
+ BurlCamera/loc03,43.284453,-79.787521, QEW near Eastport Dr
+ BurlCamera/loc04,43.294075,-79.793444, QEW Burlington Skyway - Hamilton
+ BurlCamera/loc05,43.301446,-79.797735, QEW Burlington Skyway near lift bridge
+ BurlCamera/loc06,43.308129,-79.801598, QEW Burlington Skyway near Niagara bound lanes
+ BurlCamera/loc07,43.314687,-79.805717, QEW S of Hwy 2
+ BurlCamera/loc08,43.316623,-79.808464, QEW N of Hwy 2
+ BurlCamera/loc09,43.327831,-79.824901, QEW near Fairview St
+ BurlCamera/loc10,43.336509,-79.828291, QEW near Hwy 403
+ BurlCamera/loc11,43.331811,-79.838805, 403 near King Rd
+ BurlCamera/loc12,43.339974,-79.824729, QEW W of Brant St
+ BurlCamera/loc13,43.342596,-79.819322, QEW E of Brant St
+ BurlCamera/loc14,43.350991,-79.804387, QEW near Guelph Line
+ BurlCamera/loc15,43.358979,-79.795504, QEW btn Guelph Ln and Walkers Ln
+ BurlCamera/loc16,43.365999,-79.787822, QEW near Walkers Ln
+ BurlCamera/loc17,43.37567,-79.77705, QEW btn Walkers Ln and Appleby Ln
+ BurlCamera/loc18,43.380567,-79.771857, QEW near Appleby Ln
+ BurlCamera/loc19,43.387741,-79.763918, QEW btn Appleby Ln and Burloak Dr
+ BurlCamera/loc20,43.39482,-79.756279, QEW near Burloak Dr
+ BurlCamera/loc21,43.402927,-79.74761, QEW btn Burloak Dr and Bronte Rd
+ BurlCamera/loc22,43.409256,-79.740829, QEW near Bronte Rd
+ BurlCamera/loc23,43.413839,-79.735937, QEW btn Bronte Rd and 3rd Ln
+ BurlCamera/loc24,43.423658,-79.724908, QEW near 3rd Ln
+ BurlCamera/loc25,43.438431,-79.708686, QEW near 4th Ln
+ BurlCamera/loc26,43.442544,-79.704137, QEW E of 4th Ln
+ BurlCamera/loc27,43.446158,-79.699845, QEW near Dorval Dr
+ BurlCamera/loc28,43.453417,-79.691777, QEW east of Dorval Dr
+ BurlCamera/loc29,43.460956,-79.683623, QEW near Trafalgar Rd
+ BurlCamera/loc63,43.325022,-79.8458, 403 W of King Rd
+ BurlCamera/loc100,43.250079,-79.763832, QEW near Red Hill Creek
+ BurlCamera/loc101,43.246828,-79.756794, QEW near Centennial Pkwy
+ BurlCamera/loc102,43.241952,-79.736366, QEW near Grays Rd
+ BurlCamera/loc103,43.236887,-79.716024, QEW near Millen Rd
+ BurlCamera/loc31,43.473415,-79.671822, QEW near Royal Windsor Dr
+ BurlCamera/loc32,43.494589,-79.672165, QEW near Ford Plant
+ BurlCamera/loc33,43.501126,-79.678602, QEW near Hwy 403
+ BurlCamera/loc34,43.509095,-79.663153, QEW near Winston Churchill Blvd
+ BurlCamera/loc35,43.516564,-79.655514, QEW btn Winston Churchill Blvd and Erin Mills Pkwy
+ BurlCamera/loc36,43.523846,-79.647446, QEW near Erin Mills Pkwy
+ BurlCamera/loc37,43.535794,-79.634228, QEW near Erin Mills Pkwy and Mississauga Rd
+ BurlCamera/loc38,43.552218,-79.612513, QEW near Mississauga Rd
+ BurlCamera/loc39,43.558128,-79.607964, QEW btn Mississauga Rd and Hwy 10
+ BurlCamera/loc40,43.567768,-79.599209, QEW near Hwy 10
+ BurlCamera/loc41,43.575354,-79.591312, QEW btn Hwy 10 and Cawthra Rd
+ BurlCamera/loc42,43.583064,-79.582644, QEW near Cawthra Rd
+ BurlCamera/loc43,43.589157,-79.576206, QEW btn Cawthra Rd and Dixie Rd
+ BurlCamera/loc44,43.596182,-79.568567, QEW near Dixie Rd
+ BurlCamera/loc45,43.60277,-79.561357, QEW near Etobicoke Creek
+ BurlCamera/loc46,43.606189,-79.557409, QEW near The West Mall
+ BurlCamera/loc47,43.613584,-79.544706, QEW S of Hwy 427
+ BurlCamera/loc48,43.61812,-79.55389, QEW N of Hwy 427
+ BurlCamera/loc79,43.585489,-79.660106, 403 near Mavis Rd
+ BurlCamera/loc77,43.571219,-79.674139, 403 near Creditview Rd
+ BurlCamera/loc74,43.553773,-79.69624, 403 near Erin Mills Pkwy
+ BurlCamera/loc72,43.542887,-79.709244, 403 near Winston Churchill Blvd
+ BurlCamera/loc70,43.53158411,-79.72297345, 403 near 403/407 split
+ BurlCamera/loc71,43.53651894,-79.71679345, 403 near West of Winston Church Blvd.
+ BurlCamera/loc73,43.54865411,-79.70245656, 403 near Glen Erin Dr.
+ BurlCamera/loc75,43.55929519,-79.68789528, 403 near West of Mississauga Rd.
+ BurlCamera/loc76,43.56500703,-79.67990384, 403 near East of Mississauga Rd
+ BurlCamera/loc78,43.57868583,-79.66743132, 403 near West of Mavis Rd
+ BurlCamera/loc80,43.59371769,-79.65151617, 403 near West of Hwy 10
+ BurlCamera/loc68,43.51253748,-79.69330189, 403 near Dundas St.
+ BurlCamera/loc88,43.180521,-79.267473, QEW near Ontario St
+ BurlCamera/loc89,43.175264,-79.246273, QEW near Lake St St
+ BurlCamera/loc90,43.172635,-79.232454, QEW near Niagara St - East side of Overpass
+ BurlCamera/loc84,43.17939,-79.30924, QEW at Seventh St.
+ BurlCamera/loc85,43.17803,-79.2853, 406 N/B ramp to Toronto
+ BurlCamera/loc86,43.17576,-79.28522, 406 S/B at QEW/406
+ BurlCamera/loc92,43.167251,-79.210138, QEW near Bunting Rd.
+ BurlCamera/loc93,43.167251,-79.210138, QEW Skyway West
+ BurlCamera/loc94,43.16531,-79.187994, QEW Skyway East
+ BurlCamera/loc95,43.158048,-79.164047, QEW near Glendale Ave
+ BurlCamera/loc96,43.152162,-79.147997, QEW at Sandplant Hill/405/QEW split
+ BurlCamera/loc97,43.134439,-79.129715, QEW S of Mountain Rd
+ BurlCamera/loc98,43.152413,-79.134264, 405 E of Concession 6 Rd
+ BurlCamera/loc99,43.152256,-79.125166, 405 E of Warner Rd
+ BurlCamera/loc57,43.145525,-79.10079, 405 E of St Paul Ave
+ BurlCamera/loc58,43.147716,-79.088001, 405 E of Stanley Ave
+ BurlCamera/loc59,43.154229,-79.072895, 405 btn Stanley Ave and Niagara River
+ BurlCamera/loc60,43.157234,-79.051352, 405 W of Niagara River
+ BurlCamera/loc55,42.93349,-78.985176, QEW near Bowen Rd
+ BurlCamera/loc56,42.910989,-78.942089, QEW W of Thompson Rd
+ BurlCamera/loc106,43.115129,-79.18484, WB Thorold Tunnel near E of entrance
+ BurlCamera/loc105,43.11509,-79.185569, WB Thorold Tunnel at the entrance
+ BurlCamera/loc122,43.11574,-79.187264, WB Thorold Tunnel near W of entrance
+ BurlCamera/loc108,43.11599,-79.191449, WB Thorold Tunnel near E of Welland Canal
+ BurlCamera/loc109,43.116022,-79.196362, WB Thorold Tunnel near W of Welland Canal
+ BurlCamera/loc110,43.11556,-79.202456, EB Thorold Tunnel near W of entrance
+ BurlCamera/loc107,43.115873,-79.200171, EB Thorold Tunnel at the entrance
+ BurlCamera/loc111,43.115708,-79.198058, EB Thorold Tunnel near E of entrance
+ BurlCamera/loc112,43.115661,-79.195, EB Thorold Tunnel near W of Welland Canal
+ BurlCamera/loc121,43.115567,-79.190494, EB Thorold Tunnel near E of Welland Canal
+ OttaCamera/loc01,45.42333,-75.617586, 417 near Ottawa Rd 174
+ OttaCamera/loc02,45.4188432,-75.647256, 417 btn St Laurent Blvd and Vanier Pkwy
+ OttaCamera/loc03,45.4160492,-75.6721437, 417 near Lees Ave
+ OttaCamera/loc04,45.4024351,-75.7094103, 417 near Booth St
+ OttaCamera/loc05,45.3966268,-75.7295591, 417 btn Merivale Rd and Parkdale Ave
+ OttaCamera/loc06,45.386079,-75.737087, 417 S of Carling Ave
+ OttaCamera/loc07,45.380921,-75.746885, 417 N of Carling Ave
+ OttaCamera/loc08,45.3613655,-75.7673407, 417 near Woodroffe Ave
+ OttaCamera/loc09,45.3494802,-75.7889593, 417 near Pinecrest Rd
+ OttaCamera/loc11,45.344899,-75.807766, S of 417 btn Hwy 416 and Richmond Rd
+ OttaCamera/loc10,45.3458266,-75.8127236, N of 417 btn Hwy 416 and Richmond Rd
+ OttaCamera/loc13,45.4205,-75.6294, 417 Between Ottawa Road 174 and St. Laurent Blvd.
+ LondonCamera/loc01,42.988074,-82.404456, 402 near Front St N
+ LondonCamera/loc02,42.98769,-82.398469, 402 near Christina St N
+ LondonCamera/loc03,42.986795,-82.373911, 402 near Indian Rd S
+ LondonCamera/loc04,42.989503,-82.349911, 402 near Modeland Rd
+ LondonCamera/loc05,42.990295,-82.32488, 402 near Blackwell Sideroad
+ LondonCamera/loc06,42.989824,-82.310053, 402 near Airport Rd
+ LondonCamera/loc07,42.994156,-82.288563, 402 near Jackson Rd
+ LondonCamera/loc08,42.99374,-82.265936, 402 near Brigden Rd
+ LondonCamera/loc09,42.993316,-82.242558, 402 near Waterworks Sideroad
+ LondonCamera/loc10,42.993167,-82.23169, 402 near Mandaumin Rd
+ LondonCamera/loc30,42.936192,-81.177893, 401 near Highbury Ave S
+ LondonCamera/loc31,42.922115,-81.211796, 401 near Wellington Rd S
+ LondonCamera/loc20,42.941093,-81.139526, 401 near Old Victoria Rd S
+ LondonCamera/windsor/loc01,42.304288,-83.065781, Patricia near Wyandotte
+ LondonCamera/windsor/loc02,42.298494,-83.064721, College near Huron Church Road
+ LondonCamera/windsor/loc03,42.289995,-83.059681, Tecumseh near Huron Church Road
+ LondonCamera/windsor/loc06,42.257678,-83.039207, Pulford near Huron Church Road
+ LondonCamera/windsor/loc07,42.250921,-83.035543, Cabana Todd Lane near Highway #3
+ LondonCamera/windsor/loc08,42.244263,-83.019694, St Clair College near Highway #3
+ LondonCamera/windsor/loc09,42.242394,-83.01455, Cousineau near Highway #3
+ LondonCamera/windsor/loc10,42.235031,-82.996842, Howard near Highway #3
+ LondonCamera/windsor/loc89,42.23303755,-82.98572302, Hwy #401 near Highway #3
+ LondonCamera/windsor/loc91,42.23503141,-82.98406541, Hwy #401
+ LondonCamera/windsor/loc20,42.272104,-83.059379, E. C. Row near Malden
+ LondonCamera/windsor/loc21,42.271119,-83.04823, E. C. Row near Huron Church Road
+ LondonCamera/windsor/loc22,42.274089,-83.029888, E. C. Row near Dominion
+ LondonCamera/windsor/loc23,42.276572,-83.012022, E. C. Row near Howard Ave
+ LondonCamera/windsor/loc24,42.283285,-82.981912, E. C. Row near Walker Rd
+ LondonCamera/windsor/loc25,42.28465,-82.970432, E. C. Row near Central Ave
+ LondonCamera/windsor/loc26,42.290435,-82.939824, E. C. Row near Jefferson Ave
+ LondonCamera/windsor/loc27,42.293103,-82.925989, E. C. Row near Lauzon Parkway
+ LondonCamera/windsor/loc28,42.297627,-82.904805, E. C. Row near West of Banwell Rd
+ LondonCamera/windsor/loc31,42.246684,-82.979374, Dougall Parkway near Sixth Concession
+ LondonCamera/windsor/loc32,42.250643,-82.996852, Dougall Parkway near Howard Ave
+ LondonCamera/windsor/loc33,42.25433,-83.002065, Dougall Ave near Roseland Dr
+ LondonCamera/windsor/loc34,42.275163,-83.003592, Dougall Ave near Cabana Rd
+ LondonCamera/windsor/loc35,42.2735,-83.014586, Dougall Ave near West Grand
+ LondonCamera/windsor/loc36,42.278016,-83.017201, Dougall Ave near E. C. Row North Ramp
+ LondonCamera/windsor/loc37,42.286559,-83.018911, Ouellette near Eugenie St
+ LondonCamera/windsor/loc38,42.296751,-83.025449, Ouellette near Tecumseh Rd
+ LondonCamera/windsor/loc40,42.305343,-83.030993, Ouellette near Giles
+ LondonCamera/windsor/loc45,42.298225,-83.017542, Tecumseh Rd near Howard
+ LondonCamera/windsor/loc46,42.300036,-83.006097, Tecumseh Rd near Hall
+ LondonCamera/windsor/loc47,42.302517,-82.994862, Tecumseh Rd near Walker Rd
+ LondonCamera/windsor/loc48,42.303742,-82.988643, Tecumseh Rd near Chrysler Ctr
+ LondonCamera/windsor/loc49,42.305231,-82.980702, Tecumseh Rd near Central Ave
+ LondonCamera/windsor/loc59,42.291836,-82.981259, Chrysler Ctr near Grand Marais
+ LondonCamera/windsor/loc60,42.29464,-82.973406, Central near Grand Marais
+ LondonCamera/windsor/loc61,42.314782,-83.034885, Wyandotte near Goyeau
+ LondonCamera/windsor/loc62,42.315595,-83.032735, Wyandotte near McDougall
+ LondonCamera/windsor/loc63,42.317037,-83.028662, Wyandotte near Alymer
+ LondonCamera/windsor/loc64,42.320436,-83.019136, Wyandotte near Hall
+ LondonCamera/windsor/loc65,42.323796,-83.008495, Wyandotte near Walker
+ LondonCamera/windsor/loc71,42.312584,-83.033819, Goyeau near Elliot
+ LondonCamera/windsor/loc72,42.317118,-83.036347, Goyeau near Park
+ LondonCamera/windsor/loc80,42.262893,-82.969475, Walker near Division
+ OttaCamera/loc41,44.38613889,-75.96636111, 401 E of Hwy 137
+ OttaCamera/loc42,44.38247222,-75.98311111, 401 near Hwy 137
+ OttaCamera/loc43,44.37905556,-75.99538889, 401 E of Reynolds Rd.
+ OttaCamera/loc44,44.37011111,-75.97863889, 137 near 1000 islands Pkwy
+ OttaCamera/loc50,44.28971389,-76.4301056, 401 near Hwy 15
+ OttaCamera/loc51,44.2791,-76.4749278, 401 near Montreal St.
+ OttaCamera/loc52,44.2698,-76.4983056, 401 near Division St.
+ OttaCamera/loc53,44.27817222,-76.5454833, 401 near Sydenham Rd.
+ OttaCamera/loc54,44.28768333,-76.571225, 401 near Gardiners Rd.
+ OttaCamera/loc55,44.27190273,-76.5207517, 401 near Sir John A Macdonald Blvd.
+ OttaCamera/loc56,44.23251622,-76.47853911, Wolfe Island Ferry - Barrack Street
+ OttaCamera/loc57,44.19428605,-76.44059658, Wolfe Island Ferry - Marysville Terminal (Summer)
+ OttaCamera/loc58,44.1951899,-76.43734843, Wolfe Island Ferry - Marysville Main Street
+ OttaCamera/loc59,44.21344846,-76.4226687, Wolfe Island Ferry - Dawson's Point Approach (Winter)
+ OttaCamera/loc60,44.21509214,-76.42522484, Wolfe Island Ferry - Dawson's Point Terminal (Winter)
